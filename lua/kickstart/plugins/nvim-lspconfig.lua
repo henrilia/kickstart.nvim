@@ -1,13 +1,10 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-
     { 'j-hui/fidget.nvim', opts = {} },
-
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function()
@@ -57,10 +54,11 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+    local util = require 'lspconfig/util'
     local servers = {
       rust_analyzer = {
         filetypes = { 'rust' },
-        root_dir = require('lspconfig.util').root_pattern 'Cargo.toml',
+        root_dir = util.root_pattern 'Cargo.toml',
         settings = {
           ['rust-analyzer'] = {
             checkOnSave = {
@@ -73,13 +71,49 @@ return {
         },
       },
       lua_ls = {
-
         settings = {
           Lua = {
             completion = {
               callSnippet = 'Replace',
             },
           },
+        },
+      },
+      pyright = {
+        pyright = { autoImportCompletion = true },
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = 'openFilesOnly',
+            useLibraryCodeForTypes = true,
+            typeCheckingMode = 'on',
+          },
+        },
+      },
+      ruff_lsp = {},
+      volar = {
+        filetypes = { 'typescript', 'javascript', 'vue' },
+        root_dir = util.root_pattern 'src/App.vue',
+        init_options = {
+          vue = {
+            hybridMode = false,
+          },
+        },
+      },
+      tsserver = {
+        init_options = {
+          plugins = {
+            {
+              name = '@vue/typescript-plugin',
+              location = '/home/henrik/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin/',
+              languages = { 'javascript', 'typescript', 'vue' },
+            },
+          },
+        },
+        filetypes = {
+          'javascript',
+          'typescript',
+          'vue',
         },
       },
     }

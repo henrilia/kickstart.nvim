@@ -21,23 +21,15 @@ vim.keymap.set('n', '<A-j>', 'yyddp')
 vim.keymap.set('n', '<leader>qq', ':wqa<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 
-vim.keymap.set(
-  'n',
-  '<leader>o',
-  ':<C-u>call append(line("."), repeat([""], v:count1))<CR>',
-  { desc = 'Insert a new line below the current line without entering insert mode' }
-)
-vim.keymap.set(
-  'n',
-  '<leader>O',
-  ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>',
-  { desc = 'Insert a new line above the current line without entering insert mode' }
-)
+vim.keymap.set('n', '<leader>gs', ':/<script <CR>')
 
 vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', { desc = 'Move focus to the window below' })
 vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { desc = 'Move focus to the window above' })
 vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', { desc = 'Move focus to the right window' })
+
+vim.keymap.set('n', 'H', '<cmd>bprev<CR>', { desc = 'Move to the previous buffer' })
+vim.keymap.set('n', 'L', '<cmd>bnext<CR>', { desc = 'Move to the next buffer' })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',

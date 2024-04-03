@@ -25,7 +25,7 @@ return {
 
         map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
 
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+        -- map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
         map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
         map('<F2>', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -80,17 +80,21 @@ return {
         },
       },
       pyright = {
-        pyright = { autoImportCompletion = true },
-        python = {
-          analysis = {
-            autoSearchPaths = true,
-            diagnosticMode = 'openFilesOnly',
-            useLibraryCodeForTypes = true,
-            typeCheckingMode = 'on',
+        settings = {
+          pyright = { autoImportCompletion = true },
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              typeCheckingMode = 'basic',
+            },
           },
         },
       },
       ruff_lsp = {},
+      ['css-lsp'] = {
+        filetypes = { 'css', 'vue' },
+      },
       volar = {
         filetypes = { 'typescript', 'javascript', 'vue' },
         root_dir = util.root_pattern 'src/App.vue',
@@ -110,6 +114,26 @@ return {
             },
           },
         },
+        filetypes = {
+          'javascript',
+          'typescript',
+          'vue',
+        },
+        commands = {
+          OrganizeImports = {
+            function()
+              local params = {
+                command = '_typescript.organizeImports',
+                arguments = { vim.api.nvim_buf_get_name(0) },
+                title = '',
+              }
+              vim.lsp.buf.execute_command(params)
+            end,
+            description = 'Organize Imports',
+          },
+        },
+      },
+      eslint_d = {
         filetypes = {
           'javascript',
           'typescript',

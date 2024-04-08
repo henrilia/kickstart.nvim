@@ -4,9 +4,11 @@ require('lazy').setup({
 
   { 'numToStr/Comment.nvim', opts = {} },
 
+  require 'kickstart/plugins/trouble',
+
   require 'kickstart/plugins/nvim-lspimport',
 
-  require 'kickstart/plugins/codeium',
+  -- require 'kickstart/plugins/codeium',
 
   require 'kickstart/plugins/gitsigns',
 
@@ -18,7 +20,7 @@ require('lazy').setup({
 
   require 'kickstart/plugins/nvim-lspconfig',
 
-  -- require 'kickstart/plugins/copilot',
+  require 'kickstart/plugins/copilot',
 
   require 'kickstart/plugins/vim-visual-multi',
 

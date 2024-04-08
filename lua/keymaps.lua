@@ -21,7 +21,7 @@ vim.keymap.set('n', '<A-j>', 'yyddp')
 vim.keymap.set('n', '<leader>qq', ':wqa<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 
-vim.keymap.set('n', '<leader>gs', ':/<script <CR>')
+vim.keymap.set('n', '<leader>gs', ':/<script<CR>')
 
 vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', { desc = 'Move focus to the window below' })

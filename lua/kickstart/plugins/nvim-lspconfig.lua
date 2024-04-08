@@ -133,7 +133,7 @@ return {
           },
         },
       },
-      eslint_d = {
+      ['eslint-lsp'] = {
         filetypes = {
           'javascript',
           'typescript',
@@ -141,6 +141,17 @@ return {
         },
       },
     }
+
+    vim.api.nvim_create_augroup("AutoFormat", {})
+
+    vim.api.nvim_create_autocmd(
+      "BufWritePost",
+      {
+        pattern = "*.js,*.ts,*.vue",
+        group = "AutoFormat",
+        command = 'silent! EslintFixAll',
+      }
+    )
 
     require('mason').setup()
 

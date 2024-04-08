@@ -2,6 +2,7 @@ return {
   'echasnovski/mini.nvim',
   config = function()
     require('mini.surround').setup()
+    require('mini.starter').setup()
 
     -- local statusline = require 'mini.statusline'
     --

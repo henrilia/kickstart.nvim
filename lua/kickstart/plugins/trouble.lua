@@ -5,21 +5,27 @@ return {
   config = function()
     vim.keymap.set('n', '<leader>xx', function()
       require('trouble').toggle()
-    end)
+    end, { desc = 'Toggle trouble' })
     vim.keymap.set('n', '<leader>xw', function()
       require('trouble').toggle 'workspace_diagnostics'
-    end)
+    end, { desc = 'Toggle workspace diagnostics' })
     vim.keymap.set('n', '<leader>xd', function()
       require('trouble').toggle 'document_diagnostics'
-    end)
+    end, { desc = 'Toggle document diagnostics' })
     vim.keymap.set('n', '<leader>xq', function()
       require('trouble').toggle 'quickfix'
-    end)
+    end, { desc = 'Toggle quickfix' })
     vim.keymap.set('n', '<leader>xl', function()
       require('trouble').toggle 'loclist'
-    end)
+    end, { desc = 'Toggle loclist' })
     vim.keymap.set('n', 'gR', function()
       require('trouble').toggle 'lsp_references'
     end)
+    vim.keymap.set('n', '<leader>xn', function()
+      require('trouble').next { skip_groups = true, jump = true }
+    end, { desc = 'Next trouble diagnostic' })
+    vim.keymap.set('n', '<leader>xp', function()
+      require('trouble').previous { skip_groups = true, jump = true }
+    end, { desc = 'Previous trouble diagnostic' })
   end,
 }

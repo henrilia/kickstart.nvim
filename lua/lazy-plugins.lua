@@ -2,13 +2,17 @@ require('lazy').setup({
 
   'tpope/vim-sleuth',
 
-  { 'numToStr/Comment.nvim', opts = {} },
+  require 'kickstart/plugins/comment',
+
+  require 'kickstart/plugins/dashboard-nvim',
+
+  require 'kickstart/plugins/bigfile',
 
   require 'kickstart/plugins/trouble',
 
   require 'kickstart/plugins/nvim-lspimport',
 
-  -- require 'kickstart/plugins/codeium',
+  require 'kickstart/plugins/codeium',
 
   require 'kickstart/plugins/gitsigns',
 
@@ -19,8 +23,6 @@ require('lazy').setup({
   require 'kickstart/plugins/telescope',
 
   require 'kickstart/plugins/nvim-lspconfig',
-
-  require 'kickstart/plugins/copilot',
 
   require 'kickstart/plugins/vim-visual-multi',
 

@@ -30,6 +30,8 @@ return {
         map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
         map('<F2>', vim.lsp.buf.rename, '[R]e[n]ame')
 
+        map('<leader>rl', ':LspRestart<CR>', '[R]estart [L]SP')
+
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -91,7 +93,9 @@ return {
           },
         },
       },
-      ruff_lsp = {},
+      ruff_lsp = {
+        root_dir = util.root_pattern 'requirements.txt',
+      },
       ['css-lsp'] = {
         filetypes = { 'css', 'vue' },
       },
@@ -140,18 +144,16 @@ return {
           'vue',
         },
       },
+      clangd = {},
     }
 
-    vim.api.nvim_create_augroup("AutoFormat", {})
+    vim.api.nvim_create_augroup('AutoFormat', {})
 
-    vim.api.nvim_create_autocmd(
-      "BufWritePost",
-      {
-        pattern = "*.js,*.ts,*.vue",
-        group = "AutoFormat",
-        command = 'silent! EslintFixAll',
-      }
-    )
+    vim.api.nvim_create_autocmd('BufWritePost', {
+      pattern = '*.js,*.ts,*.vue',
+      group = 'AutoFormat',
+      command = 'silent! EslintFixAll',
+    })
 
     require('mason').setup()
 

@@ -24,8 +24,10 @@ return {
       python = { 'ruff_format', 'ruff_fix' },
       javascript = { { 'prettierd', 'prettier' } },
       typescript = { { 'prettierd', 'prettier' } },
+      json = { { 'prettierd', 'prettier' } },
       vue = { { 'prettierd', 'prettier' } },
-      rust = { 'cargo' },
+      rust = { { 'rustfmt', 'cargo' } },
+      toml = { 'taplo' },
     },
   },
 }

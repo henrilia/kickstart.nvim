@@ -9,7 +9,7 @@ return {
       },
       view_options = {
         is_always_hidden = function(name, _)
-          if vim.startswith(name, '__') then
+          if vim.startswith(name, '__') and name ~= '__init__.py' then
             return true
           end
           if name == '.git' then

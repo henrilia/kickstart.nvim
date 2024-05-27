@@ -108,6 +108,16 @@ return {
           },
         },
       },
+      ['eslint-lsp'] = {
+        filetypes = {
+          'javascript',
+          'typescript',
+          'vue',
+        },
+      },
+      prettierd = {
+        filetypes = { 'javascript', 'typescript', 'vue' },
+      },
       tsserver = {
         init_options = {
           plugins = {
@@ -135,13 +145,6 @@ return {
             end,
             description = 'Organize Imports',
           },
-        },
-      },
-      ['eslint-lsp'] = {
-        filetypes = {
-          'javascript',
-          'typescript',
-          'vue',
         },
       },
       clangd = {},

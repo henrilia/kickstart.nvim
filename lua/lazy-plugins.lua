@@ -12,7 +12,7 @@ require('lazy').setup({
 
   require 'kickstart/plugins/nvim-lspimport',
 
-  require 'kickstart/plugins/codeium',
+  require 'kickstart/plugins/supermaven',
 
   require 'kickstart/plugins/gitsigns',
 

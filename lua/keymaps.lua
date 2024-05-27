@@ -36,6 +36,10 @@ vim.keymap.set('n', '<leader>n', '<cmd>cnext<CR>', { desc = 'Move to next entry 
 vim.keymap.set('n', '<leader>cc', '<cmd>cclose<CR>', { desc = 'Close the quickfix list' })
 vim.keymap.set('n', '<leader>co', '<cmd>copen<CR>', { desc = 'Open the quickfix list' })
 
+vim.keymap.set('n', '<leader>bd', function()
+  vim.cmd 'bd'
+end, { desc = 'Close current buffer' })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -43,3 +47,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_user_command('Q', function()
+  vim.cmd 'q'
+end, {})

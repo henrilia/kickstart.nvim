@@ -28,6 +28,7 @@ return {
       vue = { { 'prettierd', 'prettier' } },
       rust = { { 'rustfmt', 'cargo' } },
       toml = { 'taplo' },
+      cpp = { 'clang-format' },
     },
   },
 }

@@ -1,3 +1,8 @@
+vim.keymap.set({ 'n', 'v', 'i', 's', 't' }, '<A-7>', '{')
+vim.keymap.set({ 'n', 'v', 'i', 's', 't' }, '<A-0>', '}')
+vim.keymap.set({ 'n', 'v', 'i', 's', 't' }, '<A-8>', '[')
+vim.keymap.set({ 'n', 'v', 'i', 's', 't' }, '<A-9>', ']')
+
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -39,6 +44,9 @@ vim.keymap.set('n', '<leader>co', '<cmd>copen<CR>', { desc = 'Open the quickfix 
 vim.keymap.set('n', '<leader>bd', function()
   vim.cmd 'bd'
 end, { desc = 'Close current buffer' })
+vim.keymap.set('n', '<leader>abd', function()
+  vim.cmd '%bd'
+end, { desc = 'Close all buffers' })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',

@@ -8,7 +8,7 @@ return {
       enable = true,
       additional_vim_regex_highlighting = { 'ruby' },
     },
-    indent = { enable = true, disable = { 'ruby' , 'python'  } },
+    indent = { enable = true, disable = { 'ruby', 'python' } },
   },
   config = function(_, opts)
     ---@diagnostic disable-next-line: missing-fields

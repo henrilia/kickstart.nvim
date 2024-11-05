@@ -2,49 +2,51 @@ require('lazy').setup({
 
   'tpope/vim-sleuth',
 
-  require 'kickstart/plugins/comment',
+  require 'plugins/comment',
 
-  require 'kickstart/plugins/dashboard-nvim',
+  require 'plugins/dashboard-nvim',
 
-  require 'kickstart/plugins/bigfile',
+  require 'plugins/bigfile',
 
-  require 'kickstart/plugins/trouble',
+  require 'plugins/trouble',
 
-  require 'kickstart/plugins/nvim-lspimport',
+  require 'plugins/nvim-lspimport',
 
-  require 'kickstart/plugins/supermaven',
+  require 'plugins/supermaven',
 
-  require 'kickstart/plugins/gitsigns',
+  require 'plugins/gitsigns',
 
-  require 'kickstart/plugins/lazygit',
+  require 'plugins/lazygit',
 
-  require 'kickstart/plugins/which-key',
+  require 'plugins/which-key',
 
-  require 'kickstart/plugins/telescope',
+  require 'plugins/telescope',
 
-  require 'kickstart/plugins/nvim-lspconfig',
+  require 'plugins/nvim-lspconfig',
 
-  require 'kickstart/plugins/vim-visual-multi',
+  require 'plugins/multicursor',
 
-  require 'kickstart/plugins/conform',
+  require 'plugins/conform',
 
-  require 'kickstart/plugins/nvim-cmp',
+  require 'plugins/nvim-cmp',
 
-  require 'kickstart/plugins/onedarkpro',
+  require 'plugins/kanagawa',
 
-  require 'kickstart/plugins/vim-tmux-navigator',
+  require 'plugins/vim-tmux-navigator',
 
-  require 'kickstart/plugins/vim-test',
+  require 'plugins/vim-test',
 
-  require 'kickstart/plugins/oil',
+  require 'plugins/oil',
 
-  require 'kickstart/plugins/todo-comments',
+  require 'plugins/todo-comments',
 
-  require 'kickstart/plugins/mini',
+  require 'plugins/mini',
 
-  require 'kickstart/plugins/nvim-treesitter',
+  require 'plugins/nvim-treesitter',
 
-  require 'kickstart/plugins/lualine',
+  require 'plugins/lualine',
+
+  require 'plugins/nvim-treesitter-context',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

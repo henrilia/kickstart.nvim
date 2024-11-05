@@ -93,15 +93,13 @@ return {
           },
         },
       },
-      ruff_lsp = {
-        root_dir = util.root_pattern 'requirements.txt',
-      },
+      ruff = {},
       ['css-lsp'] = {
         filetypes = { 'css', 'vue' },
       },
       volar = {
         filetypes = { 'typescript', 'javascript', 'vue' },
-        root_dir = util.root_pattern 'src/App.vue',
+        root_dir = util.root_pattern 'src_pvt/App.vue',
         init_options = {
           vue = {
             hybridMode = false,
@@ -176,5 +174,8 @@ return {
         end,
       },
     }
+
+    -- TODO: Find out why this is needed
+    require('lspconfig').ruff.setup {}
   end,
 }

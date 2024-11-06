@@ -2,11 +2,7 @@ require('lazy').setup({
 
   'tpope/vim-sleuth',
 
-  require 'plugins/comment',
-
   require 'plugins/dashboard-nvim',
-
-  require 'plugins/bigfile',
 
   require 'plugins/trouble',
 
@@ -16,7 +12,7 @@ require('lazy').setup({
 
   require 'plugins/gitsigns',
 
-  require 'plugins/lazygit',
+  require 'plugins/snacks',
 
   require 'plugins/which-key',
 
@@ -39,8 +35,6 @@ require('lazy').setup({
   require 'plugins/oil',
 
   require 'plugins/todo-comments',
-
-  require 'plugins/mini',
 
   require 'plugins/nvim-treesitter',
 

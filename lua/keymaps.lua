@@ -41,9 +41,9 @@ vim.keymap.set('n', '<leader>n', '<cmd>cnext<CR>', { desc = 'Move to next entry 
 vim.keymap.set('n', '<leader>cc', '<cmd>cclose<CR>', { desc = 'Close the quickfix list' })
 vim.keymap.set('n', '<leader>co', '<cmd>copen<CR>', { desc = 'Open the quickfix list' })
 
-vim.keymap.set('n', '<leader>bd', function()
-  vim.cmd 'bd'
-end, { desc = 'Close current buffer' })
+-- vim.keymap.set('n', '<leader>bd', function()
+--   vim.cmd 'bd'
+-- end, { desc = 'Close current buffer' })
 vim.keymap.set('n', '<leader>abd', function()
   vim.cmd '%bd'
 end, { desc = 'Close all buffers' })

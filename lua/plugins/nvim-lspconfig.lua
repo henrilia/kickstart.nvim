@@ -116,7 +116,7 @@ return {
       prettierd = {
         filetypes = { 'javascript', 'typescript', 'vue' },
       },
-      tsserver = {
+      ts_ls = {
         init_options = {
           plugins = {
             {

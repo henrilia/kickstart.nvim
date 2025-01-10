@@ -58,6 +58,10 @@ return {
 
     local util = require 'lspconfig/util'
     local servers = {
+      zls = {
+        filetypes = { 'zig' },
+        root_dir = util.root_pattern '.git',
+      },
       rust_analyzer = {
         filetypes = { 'rust' },
         root_dir = util.root_pattern 'Cargo.toml',

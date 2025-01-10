@@ -32,21 +32,14 @@ vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', { desc = 'Move focus to the window
 vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', { desc = 'Move focus to the window above' })
 vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', { desc = 'Move focus to the right window' })
 
-vim.keymap.set('n', 'H', '<cmd>bprev<CR>', { desc = 'Move to the previous buffer' })
-vim.keymap.set('n', 'L', '<cmd>bnext<CR>', { desc = 'Move to the next buffer' })
+-- vim.keymap.set('n', 'H', '<cmd>bprev<CR>', { desc = 'Move to the previous buffer' })
+-- vim.keymap.set('n', 'L', '<cmd>bnext<CR>', { desc = 'Move to the next buffer' })
 
 vim.keymap.set('n', '<leader>p', '<cmd>cprev<CR>', { desc = 'Move to previous entry in the quickfix list' })
 vim.keymap.set('n', '<leader>n', '<cmd>cnext<CR>', { desc = 'Move to next entry in the quickfix list' })
 
 vim.keymap.set('n', '<leader>cc', '<cmd>cclose<CR>', { desc = 'Close the quickfix list' })
 vim.keymap.set('n', '<leader>co', '<cmd>copen<CR>', { desc = 'Open the quickfix list' })
-
--- vim.keymap.set('n', '<leader>bd', function()
---   vim.cmd 'bd'
--- end, { desc = 'Close current buffer' })
-vim.keymap.set('n', '<leader>abd', function()
-  vim.cmd '%bd'
-end, { desc = 'Close all buffers' })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',

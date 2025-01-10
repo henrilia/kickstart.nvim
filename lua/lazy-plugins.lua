@@ -8,7 +8,7 @@ require('lazy').setup({
 
   require 'plugins/nvim-lspimport',
 
-  require 'plugins/supermaven',
+  require 'plugins/copilot',
 
   require 'plugins/gitsigns',
 
@@ -41,6 +41,10 @@ require('lazy').setup({
   require 'plugins/lualine',
 
   require 'plugins/nvim-treesitter-context',
+
+  require 'plugins/cybu',
+
+  { 'JoosepAlviste/nvim-ts-context-commentstring' },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

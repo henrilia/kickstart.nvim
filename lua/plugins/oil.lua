@@ -6,6 +6,7 @@ return {
       keymaps = {
         ['<C-l>'] = false,
         ['<C-h>'] = false,
+        ['_'] = false,
       },
       view_options = {
         is_always_hidden = function(name, _)

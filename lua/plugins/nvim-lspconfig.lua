@@ -6,38 +6,12 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
+    { 'saghen/blink.cmp' },
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
       callback = function(event)
-        local map = function(keys, func, desc)
-          vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-        end
-
-        map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-
-        map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-
-        map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-
-        map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-
-        -- map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
-        map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        map('<F2>', vim.lsp.buf.rename, '[R]e[n]ame')
-
-        map('<leader>rl', ':LspRestart<CR>', '[R]estart [L]SP')
-
-        map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
-        map('K', vim.lsp.buf.hover, 'Hover Documentation')
-
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.server_capabilities.documentHighlightProvider then
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -54,14 +28,41 @@ return {
     })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
     local util = require 'lspconfig/util'
+
+    local function get_python_path(workspace)
+      -- Use activated virtualenv.
+      if vim.env.VIRTUAL_ENV then
+        return vim.env.VIRTUAL_ENV .. '/bin/python'
+      end
+
+      -- Find and use virtualenv in workspace directory.
+      for _, pattern in ipairs { '*', '.*' } do
+        local match = vim.fn.glob(workspace .. '/' .. pattern .. '/pyvenv.cfg')
+        if match ~= '' then
+          return vim.fs.dirname(match) .. '/bin/python'
+        end
+      end
+
+      -- Fallback to system Python.
+      return vim.fn.exepath 'python3' or vim.fn.exepath 'python' or 'python'
+    end
+
     local servers = {
       zls = {
         filetypes = { 'zig' },
         root_dir = util.root_pattern '.git',
       },
+      -- bacon = {
+      --   filetypes = { 'rust' },
+      --   root_dir = util.root_pattern 'Cargo.toml',
+      -- },
+      -- ['bacon-ls'] = {
+      --   filetypes = { 'rust' },
+      --   root_dir = util.root_pattern 'Cargo.toml',
+      -- },
       rust_analyzer = {
         filetypes = { 'rust' },
         root_dir = util.root_pattern 'Cargo.toml',
@@ -69,7 +70,11 @@ return {
           ['rust-analyzer'] = {
             checkOnSave = {
               command = 'clippy',
+              -- enable = false,
             },
+            -- diagnostics = {
+            --   enable = false,
+            -- },
             cargo = {
               allFeatures = true,
             },
@@ -86,6 +91,9 @@ return {
         },
       },
       pyright = {
+        before_init = function(_, config)
+          config.settings.python.pythonPath = get_python_path(config.root_dir)
+        end,
         settings = {
           pyright = { autoImportCompletion = true },
           python = {
@@ -173,7 +181,9 @@ return {
         function(server_name)
           local server = servers[server_name] or {}
 
+          server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities or {})
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+
           require('lspconfig')[server_name].setup(server)
         end,
       },
@@ -181,5 +191,6 @@ return {
 
     -- TODO: Find out why this is needed
     require('lspconfig').ruff.setup {}
+    -- require('lspconfig').bacon_ls.setup {}
   end,
 }

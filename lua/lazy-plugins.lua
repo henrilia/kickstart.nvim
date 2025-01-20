@@ -2,7 +2,7 @@ require('lazy').setup({
 
   'tpope/vim-sleuth',
 
-  require 'plugins/dashboard-nvim',
+  -- require 'plugins/dashboard-nvim',
 
   require 'plugins/trouble',
 
@@ -16,7 +16,7 @@ require('lazy').setup({
 
   require 'plugins/which-key',
 
-  require 'plugins/telescope',
+  -- require 'plugins/telescope',
 
   require 'plugins/nvim-lspconfig',
 
@@ -24,7 +24,8 @@ require('lazy').setup({
 
   require 'plugins/conform',
 
-  require 'plugins/nvim-cmp',
+  -- require 'plugins/nvim-cmp',
+  require 'plugins/blink-cmp',
 
   require 'plugins/kanagawa',
 

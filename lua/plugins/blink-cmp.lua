@@ -20,6 +20,20 @@ return {
     },
 
     fuzzy = {
+      -- Allows for a number of typos relative to the length of the query
+      -- Set this to 0 to match the behavior of fzf
+      max_typos = function(keyword)
+        return math.floor(#keyword / 4)
+      end,
+      -- Frecency tracks the most recently/frequently used items and boosts the score of the item
+      use_frecency = true,
+      -- Proximity bonus boosts the score of items matching nearby words
+      use_proximity = true,
+      -- UNSAFE!! When enabled, disables the lock and fsync when writing to the frecency database. This should only be used on unsupported platforms (i.e. alpine termux)
+      use_unsafe_no_lock = false,
+      -- Controls which sorts to use and in which order, falling back to the next sort if the first one returns nil
+      -- You may pass a function instead of a string to customize the sorting
+      sorts = { 'score', 'sort_text' },
       prebuilt_binaries = {
         -- Whether or not to automatically download a prebuilt binary from github. If this is set to `false`
         -- you will need to manually build the fuzzy binary dependencies by running `cargo build --release`

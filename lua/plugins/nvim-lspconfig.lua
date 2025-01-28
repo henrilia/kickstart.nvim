@@ -81,6 +81,9 @@ return {
           },
         },
       },
+      taplo = {
+        filetypes = { 'toml' },
+      },
       lua_ls = {
         settings = {
           Lua = {
@@ -129,6 +132,7 @@ return {
         filetypes = { 'javascript', 'typescript', 'vue' },
       },
       ts_ls = {
+        autostart = false,
         init_options = {
           plugins = {
             {

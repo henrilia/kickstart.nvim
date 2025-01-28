@@ -1,62 +1,8 @@
-local function week_ascii_text()
-  return {
-    ['Monday'] = [[
-      ███╗   ███╗ ██████╗ ███╗   ██╗██████╗  █████╗ ██╗   ██╗
-      ████╗ ████║██╔═══██╗████╗  ██║██╔══██╗██╔══██╗╚██╗ ██╔╝
-      ██╔████╔██║██║   ██║██╔██╗ ██║██║  ██║███████║ ╚████╔╝ 
-      ██║╚██╔╝██║██║   ██║██║╚██╗██║██║  ██║██╔══██║  ╚██╔╝  
-      ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║██████╔╝██║  ██║   ██║   
-      ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ]],
-    ['Tuesday'] = [[
-      ████████╗██╗   ██╗███████╗███████╗██████╗  █████╗ ██╗   ██╗
-      ╚══██╔══╝██║   ██║██╔════╝██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝
-         ██║   ██║   ██║█████╗  ███████╗██║  ██║███████║ ╚████╔╝ 
-         ██║   ██║   ██║██╔══╝  ╚════██║██║  ██║██╔══██║  ╚██╔╝  
-         ██║   ╚██████╔╝███████╗███████║██████╔╝██║  ██║   ██║   
-         ╚═╝    ╚═════╝ ╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ]],
-    ['Wednesday'] = [[
-      ██╗    ██╗███████╗██████╗ ███╗   ██╗███████╗███████╗██████╗  █████╗ ██╗   ██╗
-      ██║    ██║██╔════╝██╔══██╗████╗  ██║██╔════╝██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝
-      ██║ █╗ ██║█████╗  ██║  ██║██╔██╗ ██║█████╗  ███████╗██║  ██║███████║ ╚████╔╝ 
-      ██║███╗██║██╔══╝  ██║  ██║██║╚██╗██║██╔══╝  ╚════██║██║  ██║██╔══██║  ╚██╔╝  
-      ╚███╔███╔╝███████╗██████╔╝██║ ╚████║███████╗███████║██████╔╝██║  ██║   ██║   
-       ╚══╝╚══╝ ╚══════╝╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ]],
-    ['Thursday'] = [[
-      ████████╗██╗  ██╗██╗   ██╗██████╗ ███████╗██████╗  █████╗ ██╗   ██╗
-      ╚══██╔══╝██║  ██║██║   ██║██╔══██╗██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝
-         ██║   ███████║██║   ██║██████╔╝███████╗██║  ██║███████║ ╚████╔╝ 
-         ██║   ██╔══██║██║   ██║██╔══██╗╚════██║██║  ██║██╔══██║  ╚██╔╝  
-         ██║   ██║  ██║╚██████╔╝██║  ██║███████║██████╔╝██║  ██║   ██║   
-         ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ]],
-    ['Friday'] = [[
-      ██╗  ██╗ ██████╗ ████████╗   ██████╗██╗  ██╗ ██████╗  ██████╗ ██████╗ 
-      ██║  ██║██╔═══██╗╚══██╔══╝  ██╔════╝██║  ██║██╔═══██╗██╔════╝██╔═══██╗
-      ███████║██║   ██║   ██║     ██║     ███████║██║   ██║██║     ██║   ██║
-      ██╔══██║██║   ██║   ██║     ██║     ██╔══██║██║   ██║██║     ██║   ██║
-      ██║  ██║ ██████╔╝   ██║     ╚██████╗██║  ██║ ██████╔╝╚██████╗ ██████╔╝
-      ╚═╝  ╚═╝ ╚═════╝    ╚═╝      ╚═════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═════╝ ]],
-    ['Saturday'] = [[
-      ███████╗ █████╗ ████████╗██╗   ██╗██████╗ ██████╗  █████╗ ██╗   ██╗
-      ██╔════╝██╔══██╗╚══██╔══╝██║   ██║██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝
-      ███████╗███████║   ██║   ██║   ██║██████╔╝██║  ██║███████║ ╚████╔╝ 
-      ╚════██║██╔══██║   ██║   ██║   ██║██╔══██╗██║  ██║██╔══██║  ╚██╔╝  
-      ███████║██║  ██║   ██║   ╚██████╔╝██║  ██║██████╔╝██║  ██║   ██║   
-      ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ]],
-    ['Sunday'] = [[
-      ███████╗██╗   ██╗███╗   ██╗██████╗  █████╗ ██╗   ██╗
-      ██╔════╝██║   ██║████╗  ██║██╔══██╗██╔══██╗╚██╗ ██╔╝
-      ███████╗██║   ██║██╔██╗ ██║██║  ██║███████║ ╚████╔╝ 
-      ╚════██║██║   ██║██║╚██╗██║██║  ██║██╔══██║  ╚██╔╝  
-      ███████║╚██████╔╝██║ ╚████║██████╔╝██║  ██║   ██║   
-      ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ]],
-  }
-end
-
-local function week_header()
-  local week = week_ascii_text()
-  local daysoftheweek = { 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' }
-  local day = daysoftheweek[os.date('*t').wday]
-  return week[day]
+local function header_cmd()
+  if os.date('*t').wday == 6 then
+    return 'lolcat --seed=24 ~/.config/nvim/static/friday.txt'
+  end
+  return 'lolcat --seed=24 ~/.config/nvim/static/neovim.txt'
 end
 
 return {
@@ -85,25 +31,27 @@ return {
     statuscolumn = { enabled = false },
     words = { enabled = false },
     scoll = { enabled = false },
-    picker = { enabled = true, formatters = { file = { filename_first = true } } },
+    picker = { enabled = true, formatters = { file = { filename_first = true, truncate = 80 } } },
     dashboard = {
       enabled = true,
-      preset = {
-        header = week_header(),
-      },
       sections = {
-        { section = 'header' },
         {
-          pane = 2,
           section = 'terminal',
-          cmd = 'colorscript -e crunchbang-mini',
-          height = 5,
+          cmd = header_cmd(),
+          indent = -5,
+          height = 8,
+          width = 100,
+          padding = 1,
+          align = 'center',
+        },
+        {
+          section = 'terminal',
+          cmd = "curl -s 'wttr.in/Oslo?0'",
+          height = 8,
           padding = 1,
         },
-        { section = 'keys', gap = 1, padding = 1 },
-        { pane = 2, icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 1 },
-        { pane = 2, icon = ' ', title = 'Projects', section = 'projects', indent = 2, padding = 1 },
-        { section = 'startup' },
+        { icon = ' ', title = 'Projects', section = 'projects', indent = 2, padding = 1 },
+        { icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 1 },
       },
     },
   },
@@ -196,6 +144,7 @@ return {
     {
       '<leader>sn',
       function()
+        ---@diagnostic disable-next-line: assign-type-mismatch
         Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
       end,
       desc = 'Find Config File',
@@ -215,7 +164,7 @@ return {
       desc = 'Find Git Files',
     },
     {
-      '<leader>fr',
+      '<leader>s.',
       function()
         Snacks.picker.recent()
       end,
@@ -228,13 +177,6 @@ return {
         Snacks.picker.git_log()
       end,
       desc = 'Git Log',
-    },
-    {
-      '<leader>gs',
-      function()
-        Snacks.picker.git_status()
-      end,
-      desc = 'Git Status',
     },
     -- Grep
     {
@@ -383,7 +325,9 @@ return {
     {
       'gd',
       function()
-        Snacks.picker.lsp_definitions()
+        Snacks.picker.lsp_definitions {
+          unique_lines = true,
+        }
       end,
       desc = 'Goto Definition',
     },

@@ -32,7 +32,7 @@ return {
 
     local util = require 'lspconfig/util'
 
-    local function get_python_path(workspace)
+    local function get_python_venv_path(workspace)
       -- Use activated virtualenv.
       if vim.env.VIRTUAL_ENV then
         return vim.env.VIRTUAL_ENV .. '/bin/python'
@@ -46,8 +46,7 @@ return {
         end
       end
 
-      -- Fallback to system Python.
-      return vim.fn.exepath 'python3' or vim.fn.exepath 'python' or 'python'
+      return nil
     end
 
     local servers = {
@@ -94,16 +93,23 @@ return {
         },
       },
       pyright = {
+        autostart = false,
+      },
+      basedpyright = {
         before_init = function(_, config)
-          config.settings.python.pythonPath = get_python_path(config.root_dir)
+          local venv_path = get_python_venv_path(config.root_dir)
+          if venv_path then
+            config.settings.python.pythonPath = venv_path
+          end
         end,
         settings = {
-          pyright = { autoImportCompletion = true },
-          python = {
+          python = {},
+          basedpyright = {
             analysis = {
               autoSearchPaths = true,
               useLibraryCodeForTypes = true,
               typeCheckingMode = 'basic',
+              autoImportCompletion = true,
             },
           },
         },

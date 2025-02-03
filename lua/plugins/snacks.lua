@@ -334,7 +334,7 @@ return {
     {
       'gr',
       function()
-        Snacks.picker.lsp_references()
+        Snacks.picker.lsp_references { auto_confirm = false }
       end,
       nowait = true,
       desc = 'References',

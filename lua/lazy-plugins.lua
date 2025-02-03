@@ -2,11 +2,9 @@ require('lazy').setup({
 
   'tpope/vim-sleuth',
 
-  -- require 'plugins/dashboard-nvim',
+  'rose-pine/neovim',
 
   require 'plugins/trouble',
-
-  require 'plugins/nvim-lspimport',
 
   require 'plugins/copilot',
 
@@ -16,15 +14,12 @@ require('lazy').setup({
 
   require 'plugins/which-key',
 
-  -- require 'plugins/telescope',
-
   require 'plugins/nvim-lspconfig',
 
   require 'plugins/multicursor',
 
   require 'plugins/conform',
 
-  -- require 'plugins/nvim-cmp',
   require 'plugins/blink-cmp',
 
   require 'plugins/kanagawa',

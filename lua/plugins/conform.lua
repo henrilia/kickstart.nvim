@@ -30,6 +30,8 @@ return {
       toml = { 'taplo' },
       cpp = { 'clang-format' },
       html = { 'prettierd' },
+      bash = { 'shfmt' },
+      sh = { 'shfmt' },
     },
   },
 }

@@ -168,6 +168,15 @@ return {
         },
       },
       clangd = {},
+      -- shellcheck = {
+      --   filetypes = { 'sh', 'bash', 'zsh' },
+      -- },
+
+      bashls = {
+        settings = {
+          filetypes = { 'sh', 'zsh' },
+        },
+      },
     }
 
     vim.api.nvim_create_augroup('AutoFormat', {})
@@ -183,6 +192,7 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
+      'shfmt',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

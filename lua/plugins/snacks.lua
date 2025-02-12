@@ -31,7 +31,12 @@ return {
     statuscolumn = { enabled = false },
     words = { enabled = false },
     scoll = { enabled = false },
-    picker = { enabled = true, formatters = { file = { filename_first = true, truncate = 80 } } },
+    picker = {
+      enabled = true,
+      formatters = {
+        file = { filename_first = true, truncate = 80 },
+      },
+    },
     dashboard = {
       enabled = true,
       sections = {

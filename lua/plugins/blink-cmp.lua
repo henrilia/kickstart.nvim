@@ -61,6 +61,7 @@ return {
       ['<C-j>'] = { 'select_next', 'fallback' },
       ['<Up>'] = { 'select_prev', 'fallback' },
       ['<Down>'] = { 'select_next', 'fallback' },
+      ['<Tab>'] = { 'fallback' },
     },
   },
   opts_extend = { 'sources.default' },

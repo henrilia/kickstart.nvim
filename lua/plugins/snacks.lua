@@ -1,6 +1,7 @@
 local function header_cmd()
   if os.date('*t').wday == 6 then
-    return 'lolcat --seed=24 ~/.config/nvim/static/friday.txt'
+    return 'bash ~/.config/nvim/static/friday_header_3.sh'
+    -- return 'lolcat --seed=24 ~/.config/nvim/static/friday_summer.txt'
   end
   return 'lolcat --seed=24 ~/.config/nvim/static/neovim.txt'
 end

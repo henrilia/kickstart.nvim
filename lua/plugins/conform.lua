@@ -19,6 +19,12 @@ return {
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
+    formatters = {
+      shfmt = {
+        exe = 'shfmt',
+        args = { '-i', '4', '-ci' },
+      },
+    },
     formatters_by_ft = {
       lua = { 'stylua' },
       python = { 'ruff_format', 'ruff_fix' },

@@ -67,9 +67,9 @@ return {
         root_dir = util.root_pattern 'Cargo.toml',
         settings = {
           ['rust-analyzer'] = {
-            checkOnSave = {
+            checkOnSave = true,
+            check = {
               command = 'clippy',
-              -- enable = false,
             },
             -- diagnostics = {
             --   enable = false,
@@ -120,14 +120,14 @@ return {
       },
       volar = {
         filetypes = { 'typescript', 'javascript', 'vue' },
-        root_dir = util.root_pattern 'src_pvt/App.vue',
+        root_dir = util.root_pattern 'src_*/App.vue',
         init_options = {
           vue = {
             hybridMode = false,
           },
         },
       },
-      ['eslint-lsp'] = {
+      eslint = {
         filetypes = {
           'javascript',
           'typescript',

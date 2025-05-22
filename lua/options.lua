@@ -35,9 +35,11 @@ vim.opt.scrolloff = 10
 
 vim.opt.hlsearch = true
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
+vim.diagnostic.config { virtual_text = true }
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = '*',
   callback = function()
-    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+    vim.opt_local.formatoptions:remove { 'r', 'o' }
   end,
 })

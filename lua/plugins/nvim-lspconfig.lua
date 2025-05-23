@@ -1,13 +1,14 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
+    { 'williamboman/mason.nvim', version = '1.11.0' },
+    { 'williamboman/mason-lspconfig.nvim', version = '1.32.0' },
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
     { 'saghen/blink.cmp' },
   },
+  version = 'v1.8.0',
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
